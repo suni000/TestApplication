@@ -18,10 +18,24 @@ android {
         buildConfigField "String", "PUSH_VERSION", "\"${gradle.pushVersion}\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    signingConfigs {
+        release {
+            storeFile file("Test.jks")
+            storePassword "test1234"
+            keyAlias "test"
+            keyPassword "test1234"
+        }
+        debugConfig {
+            storeFile file("Test.jks")
+            storePassword "test1234"
+            keyAlias "test"
+            keyPassword "test1234"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -29,9 +43,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildFeatures {
-        viewBinding  true
-        dataBinding  true
+//    buildFeatures {
+//        viewBinding  true
+//        dataBinding  true
+//    }
+    dataBinding {
+        enabled = true
+    }
+
+    viewBinding {
+        enabled = true
     }
     sourceSets {
         main {
