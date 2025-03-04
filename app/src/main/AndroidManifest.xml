@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.aliyun.emas.pocdemo">
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- 请填写你自己的- appKey EMASDemo空间 23793506 -->
+            <meta-data
+                android:name="com.alibaba.app.appkey"
+                android:value="335407993" />
+            <!-- 请填写你自己的appSecret -->
+            <meta-data
+                android:name="com.alibaba.app.appsecret"
+                android:value="80474a44668541879d8aece200fe94c9" />
+            <meta-data
+                android:name="com.huawei.hms.client.appid"
+                android:value="appid=104689013" />
+
+            <meta-data
+                android:name="com.vivo.push.api_key"
+                android:value="76bf8c20-a40e-4638-a6b7-28726b280d78" />
+            <meta-data
+                android:name="com.vivo.push.app_id"
+                android:value="16835" />
+
+        </activity>
+    </application>
+
+</manifest>
