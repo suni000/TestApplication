@@ -3,6 +3,7 @@
     <!--应用程序信息文本-->
     <string name="app_name">TestAppliaction</string>
     <string name="app_version">v3.0.11</string>
+    <string name="v">v3.0.11</string>
 
     <string name="tab_basic">基础功能</string>
     <string name="tab_advanced">高级功能</string>

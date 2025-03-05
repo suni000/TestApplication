@@ -13,3 +13,10 @@
 .externalNativeBuild
 .cxx
 local.properties
+/a.log
+/.idea/gradle.xml
+/.idea/misc.xml
+/replay_pid9272.log
+/replay_pid20692.log
+/replay_pid21860.log
+/.idea/vcs.xml
