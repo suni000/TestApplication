@@ -38,6 +38,11 @@ android {
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debugConfig
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
     applicationVariants.all { variant ->
         if (variant.buildType.name == "release") {
@@ -115,6 +120,14 @@ dependencies {
 //    implementation 'androidx.navigation:navigation-fragment:2.4.1'
 //    implementation 'androidx.navigation:navigation-ui:2.4.1'
 //    implementation 'androidx.media3:media3-common:1.5.1'
+
+    //httpdns依赖测试
+    implementation "com.aliyun.ams:alicloud-android-httpdns:2.6.3"//配置项
+//    implementation (name: 'alicloud-android-httpdns-${httpdnsVersion}', ext: 'aar')
+//    implementation (name: 'alicloud-android-logger-${loggerVersion}', ext: 'aar')
+//    implementation (name: 'alicloud-android-crashdefend-${crashDefendVersion}', ext: 'jar')
+//    implementation (name: 'alicloud-android-ipdetector-${ipdetectorVersion}', ext: 'aar')
+    implementation 'commons-codec:commons-codec:1.15'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
