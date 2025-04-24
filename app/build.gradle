@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
 }
-gradle.ext {
+ext {
     pushVersion = '3.9.2'
     thirdPushVersion = '3.9.2'
 }
@@ -15,7 +15,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-        buildConfigField "String", "PUSH_VERSION", "\"${gradle.pushVersion}\""
+//        buildConfigField "String", "PUSH_VERSION", "\"${pushVersion}\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
@@ -25,7 +25,7 @@ android {
             keyAlias "test"
             keyPassword "test1234"
         }
-        debugConfig {
+        debug {
             storeFile file("Test.jks")
             storePassword "test1234"
             keyAlias "test"
@@ -40,8 +40,8 @@ android {
         }
         debug {
             minifyEnabled false
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debugConfig
         }
     }
     applicationVariants.all { variant ->
@@ -95,20 +95,7 @@ dependencies {
 //    implementation (name:'accs_sdk_taobao-4.8.2-emas', ext: 'aar')
 //    implementation (name:'aalicloud-android-error-1.1.0', ext: 'aar')
 //    implementation (name:'accs_sdk_taobao-4.8.2-emas', ext: 'aar')
-//    implementation (name:'accs_sdk_taobao-4.8.2-emas', ext: 'aar')
-//    implementation (name:'accs_sdk_taobao-4.8.2-emas', ext: 'aar')
 
-//    implementation "com.aliyun.ams:alicloud-android-push:${gradle.pushVersion}"
-//    implementation 'com.google.code.gson:gson:2.8.6'
-//
-//    api "com.aliyun.ams:alicloud-android-third-push:${gradle.thirdPushVersion}"
-//    api "com.aliyun.ams:alicloud-android-third-push-meizu:${gradle.thirdPushVersion}"
-//    api "com.aliyun.ams:alicloud-android-third-push-vivo:${gradle.thirdPushVersion}"
-//    api "com.aliyun.ams:alicloud-android-third-push-oppo:${gradle.thirdPushVersion}"
-//    api "com.aliyun.ams:alicloud-android-third-push-xiaomi:${gradle.thirdPushVersion}"
-//    api "com.aliyun.ams:alicloud-android-third-push-huawei:${gradle.thirdPushVersion}"
-//    api "com.aliyun.ams:alicloud-android-third-push-honor:${gradle.thirdPushVersion}"
-//    api "com.aliyun.ams:alicloud-android-third-push-fcm:${gradle.thirdPushVersion}"
 //    implementation 'com.google.code.gson:gson:2.8.6'
 //    implementation 'androidx.appcompat:appcompat:1.6.1'
 //    implementation 'com.google.android.material:material:1.9.0'
@@ -123,10 +110,6 @@ dependencies {
 
     //httpdns依赖测试
     implementation "com.aliyun.ams:alicloud-android-httpdns:2.6.3"//配置项
-//    implementation (name: 'alicloud-android-httpdns-${httpdnsVersion}', ext: 'aar')
-//    implementation (name: 'alicloud-android-logger-${loggerVersion}', ext: 'aar')
-//    implementation (name: 'alicloud-android-crashdefend-${crashDefendVersion}', ext: 'jar')
-//    implementation (name: 'alicloud-android-ipdetector-${ipdetectorVersion}', ext: 'aar')
     implementation 'commons-codec:commons-codec:1.15'
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -140,18 +123,17 @@ dependencies {
         exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
     }
 
-    implementation "com.aliyun.ams:alicloud-android-push:${gradle.pushVersion}"
+    implementation "com.aliyun.ams:alicloud-android-push:${pushVersion}"
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    api "com.aliyun.ams:alicloud-android-third-push:${gradle.thirdPushVersion}"
-    api "com.aliyun.ams:alicloud-android-third-push-meizu:${gradle.thirdPushVersion}"
-    api "com.aliyun.ams:alicloud-android-third-push-vivo:${gradle.thirdPushVersion}"
-    api "com.aliyun.ams:alicloud-android-third-push-oppo:${gradle.thirdPushVersion}"
-    api "com.aliyun.ams:alicloud-android-third-push-xiaomi:${gradle.thirdPushVersion}"
-    api "com.aliyun.ams:alicloud-android-third-push-huawei:${gradle.thirdPushVersion}"
-    api "com.aliyun.ams:alicloud-android-third-push-honor:${gradle.thirdPushVersion}"
-    api "com.aliyun.ams:alicloud-android-third-push-fcm:${gradle.thirdPushVersion}"
-
+    api "com.aliyun.ams:alicloud-android-third-push:${thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-meizu:${thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-vivo:${thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-oppo:${thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-xiaomi:${thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-huawei:${thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-honor:${thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-fcm:${thirdPushVersion}"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
